@@ -3,372 +3,261 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Анна Никандрова — структурная биоинформатика и молекулярное моделирование." />
-  <title>Никандрова Анна — CV</title>
+  <meta name="description" content="Анна Никандрова — структурная биоинформатика, молекулярное моделирование и разработка лекарств." />
+  <title>Анна Никандрова — структурный биоинформатик</title>
   <style>
     :root {
-      --ink: #171717;
-      --muted: #4d4d4d;
-      --paper: #ffffff;
-      --page-bg: #eef1f4;
-      --header: #d8e2ec;
-      --link: #1f5fae;
-      --rule: #d4d4d4;
-      --page-width: 980px;
+      --ink: #17212b; --muted: #5d6975; --paper: #fff; --canvas: #edf1f3;
+      --navy: #183b50; --accent: #168e9b; --accent-soft: #e8f4f4;
+      --rule: #dce3e6; --page-width: 1040px;
     }
-
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
+    html { scroll-behavior: smooth; background: var(--canvas); }
     body {
-      margin: 0;
-      background: var(--page-bg);
-      color: var(--ink);
-      font-family: Georgia, "Times New Roman", Times, serif;
-      font-size: 16px;
-      line-height: 1.28;
-      -webkit-font-smoothing: antialiased;
+      margin: 0; color: var(--ink); background: var(--canvas);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-
-    a { color: var(--link); }
-
+    a { color: inherit; text-decoration-color: color-mix(in srgb, var(--accent) 65%, transparent); text-underline-offset: 3px; }
+    a:hover { color: var(--accent); }
     .page {
-      width: min(var(--page-width), calc(100% - 32px));
-      margin: 28px auto;
-      background: var(--paper);
-      box-shadow: 0 8px 30px rgba(0,0,0,.11);
+      width: min(var(--page-width), calc(100% - 40px)); margin: 32px auto; overflow: hidden;
+      background: var(--paper); border-top: 8px solid var(--navy);
+      box-shadow: 0 18px 48px rgba(23, 33, 43, .11);
     }
-
-    .header {
-      background: var(--header);
-      padding: 42px 46px 36px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 270px;
-      grid-template-areas:
-        "name contacts"
-        "summary summary";
-      column-gap: 42px;
-      row-gap: 18px;
-      align-items: start;
+    .header { padding: 48px 56px 38px; border-bottom: 1px solid var(--rule); }
+    .header-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: start; }
+    .eyebrow {
+      margin: 0 0 10px; color: var(--accent); font-size: 13px; font-weight: 750;
+      letter-spacing: .09em; text-transform: uppercase;
     }
-
-    .intro { display: contents; }
-
     h1 {
-      grid-area: name;
-      margin: 0;
-      font-size: 36px;
-      line-height: 1.05;
-      font-weight: 700;
-      letter-spacing: -.02em;
+      margin: 0; color: var(--navy); font-size: clamp(34px, 5vw, 48px); font-weight: 760;
+      letter-spacing: -.04em; line-height: 1.02;
     }
-
-    .summary {
-      grid-area: summary;
-      margin: 0;
-      max-width: none;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 1.25;
-    }
-
     .contacts {
-      grid-area: contacts;
-      text-align: right;
-      font-size: 14px;
-      line-height: 1.35;
-      font-weight: 600;
-      word-break: break-word;
+      display: grid; justify-items: end; gap: 5px; padding-top: 3px; color: var(--muted);
+      font-size: 14px; font-style: normal; line-height: 1.4; white-space: nowrap;
     }
-
-    .contacts a {
-      display: block;
-      margin-top: 2px;
-      text-decoration: underline;
-    }
-
+    .contacts a { text-decoration: none; }
+    .contacts a::before { margin-right: 7px; color: var(--accent); content: "—"; }
+    .summary { max-width: 820px; margin: 28px 0 0; color: #35434e; font-size: 17px; line-height: 1.58; }
     .content {
-      padding: 18px 46px 44px;
+      display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(250px, .8fr);
+      gap: 54px; padding: 40px 56px 52px;
     }
-
-    section { margin-top: 18px; }
-
+    .main-column, .side-column { min-width: 0; }
+    section + section { margin-top: 38px; }
     h2 {
-      margin: 0 0 22px 214px;
-      font-size: 24px;
-      line-height: 1.1;
-      font-weight: 700;
+      display: flex; gap: 12px; align-items: center; margin: 0 0 22px; color: var(--navy);
+      font-size: 20px; font-weight: 760; letter-spacing: -.015em; line-height: 1.2;
     }
-
-    .row {
-      display: grid;
-      grid-template-columns: 170px minmax(0, 1fr);
-      gap: 18px;
-      margin-bottom: 26px;
+    h2::after { height: 1px; flex: 1; background: var(--rule); content: ""; }
+    .position { position: relative; padding-left: 22px; }
+    .position + .position { margin-top: 31px; }
+    .position::before {
+      position: absolute; top: 7px; left: 0; width: 8px; height: 8px;
+      border: 2px solid var(--accent); border-radius: 50%; background: var(--paper); content: "";
     }
-
-    .role {
-      font-size: 16px;
-      font-weight: 700;
-      padding-top: 1px;
+    .position::after {
+      position: absolute; top: 20px; bottom: -30px; left: 5px; width: 1px;
+      background: var(--rule); content: "";
     }
-
-    .details h3,
-    .edu-main strong,
-    .project-title {
-      display: block;
-      margin: 0;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .date {
-      margin-top: 4px;
-      font-style: italic;
-      font-size: 15px;
-    }
-
-    ul {
-      margin: 10px 0 0;
-      padding-left: 24px;
-    }
-
-    li { margin: 3px 0; }
-
-    .education .row {
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      margin-left: 188px;
-      margin-bottom: 26px;
-    }
-
-    .edu-main em {
-      display: block;
-      margin-top: 4px;
-      font-size: 15px;
-    }
-
-    .edu-side {
-      padding-top: 16px;
-      font-size: 15px;
-    }
-
-    .skills {
-      margin-left: 188px;
-    }
-
-    .skills h2,
-    .projects h2,
-    .language h2 {
-      margin-left: 0;
-      margin-bottom: 18px;
-    }
-
-    .skill-block { margin-bottom: 18px; }
-    .skill-block strong { display: block; margin-bottom: 1px; }
-
+    .position:last-child::after { display: none; }
+    .position-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: baseline; }
+    h3 { margin: 0; color: var(--ink); font-size: 16px; font-weight: 750; line-height: 1.35; }
+    .date { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .organization { margin-top: 3px; color: var(--accent); font-size: 14px; font-weight: 650; }
+    ul { margin: 12px 0 0; padding-left: 19px; }
+    li { padding-left: 3px; }
+    li + li { margin-top: 7px; }
+    li::marker { color: var(--accent); }
+    .project { padding: 22px 24px; background: var(--accent-soft); border-left: 3px solid var(--accent); }
+    .project h3 { color: var(--navy); }
+    .project ul { margin-top: 11px; }
+    .side-column section + section { margin-top: 34px; }
+    .side-column h2 { margin-bottom: 17px; font-size: 17px; }
+    .education-item + .education-item { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--rule); }
+    .education-item strong { display: block; line-height: 1.4; }
+    .education-item .date { display: block; margin-top: 4px; }
+    .education-note { margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .skill-group + .skill-group { margin-top: 18px; }
+    .skill-group strong { display: block; margin-bottom: 5px; color: var(--navy); font-size: 13px; line-height: 1.4; }
+    .skill-group p { margin: 0; color: #43515d; font-size: 14px; line-height: 1.55; }
     .language-line {
-      margin-left: 188px;
-      font-size: 16px;
-      margin-bottom: 22px;
+      display: flex; justify-content: space-between; gap: 16px; align-items: center;
+      padding: 13px 15px; background: #f4f7f8;
     }
-
-    .projects {
-      margin-left: 188px;
+    .language-level { color: var(--accent); font-weight: 750; }
+    .footer {
+      display: flex; justify-content: space-between; gap: 24px; align-items: center;
+      padding: 20px 56px; color: var(--muted); background: #f7f9fa;
+      border-top: 1px solid var(--rule); font-size: 12px;
     }
-
-    .projects h2 { margin-bottom: 12px; }
-    .project-title { margin-bottom: 8px; }
-
-
-    .download-row {
-      margin-top: 18px;
-      display: flex;
-      justify-content: flex-end;
-    }
-
     .download-cv {
-      display: inline-block;
-      padding: 10px 16px;
-      border: 1px solid var(--ink);
-      border-radius: 2px;
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      background: transparent;
+      display: inline-flex; gap: 8px; align-items: center; padding: 9px 14px; color: #fff;
+      background: var(--navy); border-radius: 3px; font-size: 13px; font-weight: 700; text-decoration: none;
     }
+    .download-cv:hover { color: #fff; background: var(--accent); }
+    .download-cv::before { content: "↓"; }
 
-    .download-cv:hover {
-      background: rgba(0, 0, 0, 0.04);
-    }
-
-    .footer-note {
-      margin-top: 28px;
-      padding-top: 14px;
-      border-top: 1px solid var(--rule);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    @media (max-width: 760px) {
-      body { background: #fff; }
-      .page {
-        width: 100%;
-        margin: 0;
-        box-shadow: none;
-      }
-      .header {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          "name"
-          "summary"
-          "contacts";
-        gap: 18px;
-        padding: 30px 24px 28px;
-      }
-      .contacts { text-align: left; }
-      .content { padding: 16px 24px 34px; }
-      h1 { font-size: 32px; }
-      h2,
-      .skills,
-      .projects,
-      .language-line {
-        margin-left: 0;
-      }
-      h2 { margin-bottom: 16px; }
-      .row,
-      .education .row {
-        grid-template-columns: 1fr;
-        gap: 6px;
-        margin-left: 0;
-      }
-      .role { margin-bottom: 2px; }
-      .edu-side { padding-top: 0; }
+    @media (max-width: 780px) {
+      .page { width: 100%; margin: 0; border-top-width: 6px; box-shadow: none; }
+      .header, .content { padding-right: 24px; padding-left: 24px; }
+      .header { padding-top: 34px; padding-bottom: 30px; }
+      .header-top, .content { grid-template-columns: 1fr; gap: 0; }
+      .contacts { justify-items: start; margin-top: 23px; white-space: normal; }
+      .summary { margin-top: 24px; font-size: 16px; }
+      .content { padding-top: 32px; padding-bottom: 40px; }
+      .side-column { margin-top: 38px; }
+      .position-head { grid-template-columns: 1fr; gap: 3px; }
+      .date { white-space: normal; }
+      .footer { align-items: flex-start; flex-direction: column; padding-right: 24px; padding-left: 24px; }
     }
 
     @media print {
-      @page { size: A4; margin: 0; }
-      body { background: #fff; }
-      .page {
-        width: 100%;
-        margin: 0;
-        box-shadow: none;
-      }
+      @page { size: A4; margin: 14mm 13mm; }
+      :root { --ink: #111820; --navy: #183b50; --accent: #167c86; }
+      html, body { background: #fff; }
+      body { font-size: 9.2pt; line-height: 1.4; }
+      .page { width: auto; margin: 0; overflow: visible; border-top-width: 5px; box-shadow: none; }
+      .header { padding: 8mm 9mm 7mm; }
+      .header-top { grid-template-columns: minmax(0, 1fr) auto; gap: 12mm; }
+      .contacts { justify-items: end; margin-top: 0; white-space: nowrap; }
+      .eyebrow { margin-bottom: 2mm; font-size: 7.5pt; }
+      h1 { font-size: 27pt; }
+      .contacts { gap: 1mm; font-size: 8.2pt; }
+      .summary { margin-top: 5mm; font-size: 10pt; line-height: 1.45; }
+      .content { grid-template-columns: minmax(0, 1.7fr) minmax(56mm, .8fr); gap: 9mm; padding: 7mm 9mm 8mm; }
+      section + section { margin-top: 7mm; }
+      h2 { margin-bottom: 4mm; font-size: 13pt; }
+      .side-column h2 { margin-bottom: 3mm; font-size: 11pt; }
+      .position { padding-left: 5mm; break-inside: avoid; }
+      .position-head { grid-template-columns: minmax(0, 1fr) auto; gap: 4mm; }
+      .position + .position { margin-top: 5mm; }
+      .position::after { bottom: -5mm; }
+      h3 { font-size: 9.5pt; }
+      .date { font-size: 7.8pt; }
+      .organization { font-size: 8.2pt; }
+      ul { margin-top: 2.5mm; padding-left: 4.5mm; }
+      li + li { margin-top: 1.2mm; }
+      .project { padding: 4mm; break-inside: avoid; }
+      .side-column section + section { margin-top: 6mm; }
+      .education-item + .education-item { margin-top: 4mm; padding-top: 4mm; }
+      .education-note, .skill-group p { font-size: 8.2pt; }
+      .skill-group + .skill-group { margin-top: 3.5mm; }
+      .skill-group strong { margin-bottom: 1mm; font-size: 8pt; }
+      .language-line { padding: 2.5mm 3mm; }
+      .footer { display: none; }
+      a { text-decoration: none; }
+    }
   </style>
 </head>
 <body>
   <main class="page" id="top">
     <header class="header">
-      <div class="intro">
-        <h1>Никандрова Анна</h1>
-        <p class="summary">
-          Специалист в области структурной биоинформатики и молекулярного моделирования.
-          В фармацевтическом R&amp;D работала с дизайном малых молекул (LBDD, SBDD),
-          комплексами белок–лиганд и белок–белок и молекулярной динамикой.
-          Разрабатывала расчётные пайплайны; использую MD (GROMACS, OpenMM), докинг,
-          FEP, Boltz-2 и Python/RDKit в задачах ранней разработки лекарств.
-        </p>
+      <div class="header-top">
+        <div>
+          <p class="eyebrow">Структурная биоинформатика · Molecular modeling</p>
+          <h1>Анна Никандрова</h1>
+        </div>
+        <address class="contacts">
+          <a href="tel:+79065077806">+7 906 507-78-06</a>
+          <a href="mailto:ann.nikandrowa@yandex.ru">ann.nikandrowa@yandex.ru</a>
+          <a href="https://t.me/ssttoou" target="_blank" rel="noreferrer">Telegram: @ssttoou</a>
+        </address>
       </div>
-      <div class="contacts">
-        <div>+7 (906)-507-78-06</div>
-        <a href="mailto:ann.nikandrowa@yandex.ru">ann.nikandrowa@yandex.ru</a>
-        <a href="https://t.me/ssttoou" target="_blank" rel="noreferrer">tg: ssttoou</a>
-      </div>
+      <p class="summary">Специалист по структурной биоинформатике и молекулярному моделированию в фармацевтическом R&amp;D. Работаю с дизайном малых молекул, комплексами белок–лиганд и белок–белок, молекулярной динамикой и расчётными пайплайнами для ранней разработки лекарств.</p>
     </header>
 
     <div class="content">
-      <section id="experience">
-        <h2>Опыт</h2>
-
-        <article class="row">
-          <div class="role">Медицинский химик</div>
-          <div class="details">
-            <h3>ХимРар, отдел ранней разработки лекарственных средств</h3>
-            <div class="date">Февраль 2026 – Август 2026</div>
+      <div class="main-column">
+        <section aria-labelledby="experience-title">
+          <h2 id="experience-title">Опыт</h2>
+          <article class="position">
+            <div class="position-head">
+              <h3>Медицинский химик</h3>
+              <time class="date" datetime="2026-02/2026-08">02.2026–08.2026</time>
+            </div>
+            <div class="organization">ХимРар · отдел ранней разработки лекарственных средств</div>
             <ul>
-              <li>Разработала серии малых молекул для внутриклеточных мишеней; провела in silico валидацию с использованием докинга, молекулярной динамики, Boltz-2 и FEP. Соединения доведены до in vitro тестирования.</li>
-              <li>Разработала расчётный пайплайн генерации и фильтрации белок-белковых комплексов и химерных соединений (RIPTAC) с сериями линкеров.</li>
-              <li>Разработала модель классификации белковых дегрейдеров и модуляторов на основе 3D-фармакофорных представлений для разделения механизма действия на этапе ранней разработки.</li>
+              <li>Разработала серии малых молекул для внутриклеточных мишеней и провела in silico валидацию с использованием докинга, молекулярной динамики, Boltz-2 и FEP. Соединения доведены до in vitro тестирования.</li>
+              <li>Создала расчётный пайплайн генерации и фильтрации белок-белковых комплексов и химерных соединений RIPTAC с сериями линкеров.</li>
+              <li>Разработала модель классификации белковых дегрейдеров и модуляторов на основе 3D-фармакофорных представлений для определения механизма действия на этапе ранней разработки.</li>
             </ul>
-          </div>
-        </article>
-
-        <article class="row">
-          <div class="role">Лаборант-исследователь</div>
-          <div class="details">
-            <h3>ИБХ РАН, лаборатория оксилипинов</h3>
-            <div class="date">Июнь 2023 – Июль 2025</div>
+          </article>
+          <article class="position">
+            <div class="position-head">
+              <h3>Лаборант-исследователь</h3>
+              <time class="date" datetime="2023-06/2025-07">06.2023–07.2025</time>
+            </div>
+            <div class="organization">ИБХ РАН · лаборатория оксилипинов</div>
             <ul>
-              <li>Показала, что комбинированное взаимодействие N-DHA-DA с DOX, TMZ на клеточных линиях LN229, U87 усиливает цитотоксический эффект в 2–2,5 раза.</li>
-              <li>Подобрала маркеры для оценки клеточной дифференцировки (nestin, GFAP, EAAT2).</li>
+              <li>Показала, что комбинированное взаимодействие N-DHA-DA с DOX и TMZ на клеточных линиях LN229 и U87 усиливает цитотоксический эффект в 2–2,5 раза.</li>
+              <li>Подобрала маркеры для оценки клеточной дифференцировки: nestin, GFAP и EAAT2.</li>
             </ul>
-          </div>
-        </article>
-      </section>
+          </article>
+        </section>
 
-      <section class="education" id="education">
-        <h2>Образование</h2>
-
-        <div class="row">
-          <div class="edu-main">
-            <strong>МГУ, биологический факультет</strong>
-            <em>Бакалавр, 2021–2025</em>
-          </div>
-          <div class="edu-side">Кафедра биоорганической химии</div>
-        </div>
-
-        <div class="row">
-          <div class="edu-main">
-            <strong>НИУ ВШЭ, ФКН</strong>
-            <em>Магистр, 2025–2027</em>
-          </div>
-          <div class="edu-side">Анализ данных в биологии и медицине</div>
-        </div>
-      </section>
-
-      <section class="skills" id="skills">
-        <h2>Технические навыки</h2>
-
-        <div class="skill-block">
-          <strong>Молекулярная динамика и анализ:</strong>
-          GROMACS; силовые поля AMBER, CHARMM, Martini, OPLS; OpenMM, Desmond, FEP, VMD, MDAnalysis, ChemDraw
-        </div>
-
-        <div class="skill-block">
-          <strong>Структурное моделирование и докинг:</strong>
-          Schrödinger Maestro, Boltz-2, PyMOL, AutoDock Vina, OpenBabel, HADDOCK, GRAMM
-        </div>
-
-        <div class="skill-block">
-          <strong>Python, автоматизация и анализ данных:</strong>
-          Python (RDKit, Pandas, NumPy, scikit-learn, PyTorch, TensorFlow), Bash, Linux, R
-        </div>
-
-        <div class="skill-block">
-          <strong>Химические базы данных:</strong>
-          SciFinder, Reaxys, ChEMBL, ChemDiv, InterBioScreen
-        </div>
-      </section>
-
-      <section class="language" id="language">
-        <div class="language-line"><strong>Английский язык</strong> В2</div>
-      </section>
-
-      <section class="projects" id="project">
-        <h2>Биоинформатические проекты</h2>
-        <div class="project-title">In silico анализ физико-химических свойств и мишеней BPC-157:</div>
-        <ul>
-          <li>Поиск и приоритизация потенциальных мишеней BPC-157 с использованием анализа мотивов, гомологии подпоследовательностей и сетевого анализа.</li>
-          <li>Верификация гипотез связывания и транспорта через мембрану с помощью MM-GBSA, in silico мутагенеза и MD в водном и мембранном окружении.</li>
-        </ul>
-      </section>
-
-      <div class="footer-note">Одностраничная веб-версия CV.</div>
-      <div class="download-row">
-        <a class="download-cv" href="Anna_Nikandrova_CV.docx" download>Скачать CV</a>
+        <section aria-labelledby="projects-title">
+          <h2 id="projects-title">Биоинформатический проект</h2>
+          <article class="project">
+            <h3>In silico анализ свойств и потенциальных мишеней BPC-157</h3>
+            <ul>
+              <li>Поиск и приоритизация потенциальных мишеней с помощью анализа мотивов, гомологии подпоследовательностей и сетевого анализа.</li>
+              <li>Верификация гипотез связывания и транспорта через мембрану с помощью MM-GBSA, in silico мутагенеза и MD в водном и мембранном окружении.</li>
+            </ul>
+          </article>
+        </section>
       </div>
+
+      <aside class="side-column" aria-label="Образование и навыки">
+        <section aria-labelledby="education-title">
+          <h2 id="education-title">Образование</h2>
+          <div class="education-item">
+            <strong>НИУ ВШЭ · ФКН</strong>
+            <span class="date">Магистратура · 2025–2027</span>
+            <div class="education-note">Анализ данных в биологии и медицине</div>
+          </div>
+          <div class="education-item">
+            <strong>МГУ · биологический факультет</strong>
+            <span class="date">Бакалавриат · 2021–2025</span>
+            <div class="education-note">Кафедра биоорганической химии</div>
+          </div>
+        </section>
+
+        <section aria-labelledby="skills-title">
+          <h2 id="skills-title">Технические навыки</h2>
+          <div class="skill-group">
+            <strong>Молекулярная динамика и анализ</strong>
+            <p>GROMACS, OpenMM, Desmond, FEP, VMD, MDAnalysis; AMBER, CHARMM, Martini, OPLS</p>
+          </div>
+          <div class="skill-group">
+            <strong>Структурное моделирование и докинг</strong>
+            <p>Schrödinger Maestro, Boltz-2, PyMOL, AutoDock Vina, OpenBabel, HADDOCK, GRAMM</p>
+          </div>
+          <div class="skill-group">
+            <strong>Код и анализ данных</strong>
+            <p>Python, RDKit, Pandas, NumPy, scikit-learn, PyTorch, TensorFlow, Bash, Linux, R</p>
+          </div>
+          <div class="skill-group">
+            <strong>Химические базы данных</strong>
+            <p>SciFinder, Reaxys, ChEMBL, ChemDiv, InterBioScreen</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="language-title">
+          <h2 id="language-title">Языки</h2>
+          <div class="language-line"><span>Английский</span><span class="language-level">B2</span></div>
+        </section>
+      </aside>
     </div>
+
+    <footer class="footer">
+      <span>CV · обновлено в сентябре 2026</span>
+      <a class="download-cv" href="Anna_Nikandrova_CV.docx" download>Скачать DOCX</a>
+    </footer>
   </main>
 </body>
 </html>
